@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Club Cabo – Sara's Bachelorette</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0eb;
+      --light-blue: #c9dce8;
+      --terracotta: #b85c38;
+      --terracotta-light: #c97a55;
+      --warm-gray: #8a7a70;
+      --stripe-blue: #daeaf4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      color: #3a3228;
+      overflow-x: hidden;
+    }
+
+    /* ── STRIPE BACKGROUND ── */
+    .stripe-bg {
+      background-color: var(--stripe-blue);
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 28px,
+        rgba(255,255,255,0.65) 28px,
+        rgba(255,255,255,0.65) 42px
+      );
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1rem 2rem;
+      background: rgba(245, 240, 235, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184, 92, 56, 0.15);
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1rem 4rem;
+    }
+
+    .hero-card {
+      background: var(--cream);
+      border-radius: 120px 120px 24px 24px;
+      max-width: 440px;
+      width: 100%;
+      padding: 3.5rem 2.5rem 3rem;
+      text-align: center;
+      box-shadow: 0 8px 60px rgba(184,92,56,0.08);
+    }
+
+    .hero-presents {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--warm-gray);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .hero-club-cabo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      line-height: 1.05;
+      display: block;
+    }
+
+    .hero-bach {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Martini SVG */
+    .martini-wrap {
+      margin: 0.5rem auto 1.5rem;
+      width: 140px;
+      height: 140px;
+      position: relative;
+    }
+
+    .martini-wrap svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-weekend {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #5a4a3f;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-dates {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--terracotta-light);
+      margin-bottom: 1rem;
+    }
+
+    .hero-location {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-country {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--warm-gray);
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: var(--terracotta);
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--terracotta-light);
+      margin: 0.8rem auto 2.5rem;
+      opacity: 0.5;
+    }
+
+    /* ── ITINERARY ── */
+    #itinerary {
+      background: #faf7f4;
+    }
+
+    .day-block {
+      margin-bottom: 2.8rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(184,92,56,0.15);
+    }
+    .day-block:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .day-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .day-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--terracotta);
+    }
+
+    .day-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--terracotta-light);
+      margin-left: 0.6rem;
+      font-weight: 300;
+    }
+
+    .day-vibe {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--warm-gray);
+    }
+
+    .day-theme {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .event-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 0.65rem;
+      align-items: baseline;
+    }
+
+    .event-time {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--terracotta-light);
+      min-width: 80px;
+      letter-spacing: 0.05em;
+    }
+
+    .event-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: #3a3228;
+      line-height: 1.4;
+    }
+
+    .event-desc strong {
+      font-weight: 600;
+    }
+
+    .event-desc em {
+      color: var(--warm-gray);
+      font-style: italic;
+    }
+
+    /* color dots */
+    .dots {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 0.6rem;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot.filled { background: var(--terracotta); }
+    .dot.outline { background: transparent; border: 1.5px solid var(--terracotta); }
+    .dot.cream { background: #d9c9b8; }
+    .dot.light { background: #c0a890; }
+    .dot.star { background: transparent; position: relative; }
+
+    /* ── DETAILS ── */
+    #details {
+      background: var(--cream);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .detail-card {
+      background: #faf7f4;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(184,92,56,0.1);
+    }
+
+    .detail-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .detail-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+
+    .detail-card p strong {
+      color: #3a3228;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: #faf7f4;
+      text-align: center;
+    }
+
+    .contact-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--warm-gray);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--terracotta);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(58,50,40,0.35);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .hero-club-cabo { font-size: 1.5rem; }
+      .hero-name { font-size: 3rem; }
+      .hero-bach { font-size: 2.5rem; }
+      .day-header { flex-direction: column; gap: 0.2rem; }
+      .day-vibe { margin-top: 0; }
+      nav { gap: 1.2rem; }
+      nav a { font-size: 0.58rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#details">Details</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero stripe-bg" id="hero">
+    <div class="hero-card">
+      <span class="hero-club-cabo">CLUB CABO</span>
+      <span class="hero-presents">presents</span>
+      <span class="hero-name">Sara's</span>
+      <span class="hero-bach">Bachelorette</span>
+
+      <!-- Martini illustration -->
+      <div class="martini-wrap">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- sparkles -->
+          <g fill="#b85c38" opacity="0.85">
+            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.7) translate(16,20)"/>
+            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.7) translate(105,20)"/>
+            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.55) translate(14,95)"/>
+            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.55) translate(185,95)"/>
+            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.45) translate(50,165)"/>
+            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.45) translate(215,165)"/>
+          </g>
+          <!-- glass body -->
+          <path d="M35 32 L80 90 L125 32 Z" stroke="#b85c38" stroke-width="2" fill="rgba(220,190,175,0.18)" stroke-linejoin="round"/>
+          <!-- stem -->
+          <line x1="80" y1="90" x2="80" y2="130" stroke="#b85c38" stroke-width="2"/>
+          <!-- base -->
+          <ellipse cx="80" cy="131" rx="20" ry="5" stroke="#b85c38" stroke-width="2" fill="none"/>
+          <!-- liquid shimmer dots -->
+          <circle cx="70" cy="65" r="3" fill="#e8c4b8" opacity="0.7"/>
+          <circle cx="82" cy="72" r="2.5" fill="#e8c4b8" opacity="0.6"/>
+          <circle cx="90" cy="60" r="2" fill="#e8c4b8" opacity="0.5"/>
+          <circle cx="76" cy="55" r="1.8" fill="#e8c4b8" opacity="0.5"/>
+          <!-- citrus wheel -->
+          <circle cx="96" cy="42" r="9" stroke="#b85c38" stroke-width="1.5" fill="rgba(220,190,140,0.3)"/>
+          <line x1="96" y1="33" x2="96" y2="51" stroke="#b85c38" stroke-width="1"/>
+          <line x1="87" y1="42" x2="105" y2="42" stroke="#b85c38" stroke-width="1"/>
+          <line x1="90" y1="36" x2="102" y2="48" stroke="#b85c38" stroke-width="1"/>
+          <line x1="90" y1="48" x2="102" y2="36" stroke="#b85c38" stroke-width="1"/>
+          <!-- cocktail pick / straw -->
+          <line x1="100" y1="28" x2="72" y2="75" stroke="#b85c38" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="100" cy="26" r="4" fill="#b85c38" opacity="0.6"/>
+        </svg>
+      </div>
+
+      <p class="hero-weekend">Bachelorette Weekend</p>
+      <p class="hero-dates">April 29 – May 3, 2026</p>
+      <p class="hero-location">Cabo San Lucas</p>
+      <p class="hero-country">Mexico</p>
+    </div>
+  </section>
+
+  <!-- ITINERARY -->
+  <section id="itinerary">
+    <div class="section-inner">
+      <h2 class="section-title">Itinerary</h2>
+      <div class="section-divider"></div>
+
+      <!-- WEDNESDAY -->
+      <div class="day-block">
+        <div class="day-header">
+          <div>
+            <span class="day-name">WEDNESDAY</span>
+            <span class="day-date">April 29</span>
+          </div>
+          <span class="day-vibe">Golden Hour, Tequila Sunset</span>
+        </div>
+        <div class="dots">
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot cream"></div>
+        </div>
+        <p class="day-theme">think sunset ombre</p>
+        <div class="event-row">
+          <span class="event-time">12:00 PM</span>
+          <span class="event-desc"><strong>Arrive in Cabo</strong> <em>– Transport to villa</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">1:00 PM</span>
+          <span class="event-desc"><strong>Welcome Drinks + Apps</strong> <em>– Poolside</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">2:00 PM</span>
+          <span class="event-desc"><strong>Settle In</strong> <em>– Unpack &amp; get ready</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">5:00 PM</span>
+          <span class="event-desc"><strong>Sunset Dinner</strong> <em>– Mona Lisa</em></span>
+        </div>
+      </div>
+
+      <!-- THURSDAY -->
+      <div class="day-block">
+        <div class="day-header">
+          <div>
+            <span class="day-name">THURSDAY</span>
+            <span class="day-date">April 30</span>
+          </div>
+          <span class="day-vibe">Mermaids Gone Wild</span>
+        </div>
+        <div class="dots">
+          <div class="dot outline"></div>
+          <div class="dot cream"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+        </div>
+        <p class="day-theme">flowy it girl mermaid</p>
+        <div class="event-row">
+          <span class="event-time">Morning</span>
+          <span class="event-desc"><strong>Breakfast</strong> <em>– At the villa</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">11:00 AM</span>
+          <span class="event-desc"><strong>BOAT DAY</strong> <em>– Private yacht, open bar, snorkeling</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Afternoon</span>
+          <span class="event-desc"><strong>Villa Day Party</strong> <em>– Pool time &amp; brunch/lunch</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Evening</span>
+          <span class="event-desc"><strong>Dinner at villa</strong></span>
+        </div>
+      </div>
+
+      <!-- FRIDAY -->
+      <div class="day-block">
+        <div class="day-header">
+          <div>
+            <span class="day-name">FRIDAY</span>
+            <span class="day-date">May 1</span>
+          </div>
+          <span class="day-vibe">Fuego Friday</span>
+        </div>
+        <div class="dots">
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+        </div>
+        <p class="day-theme">spicy night out</p>
+        <div class="event-row">
+          <span class="event-time">Morning</span>
+          <span class="event-desc"><strong>Breakfast</strong> <em>– Leisurely morning</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">11:00 AM</span>
+          <span class="event-desc"><strong>Tequila Tasting</strong> <em>– At villa</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Afternoon</span>
+          <span class="event-desc"><strong>Beach Club</strong> <em>– Private cabana, vibes &amp; music</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Evening</span>
+          <span class="event-desc"><strong>Dinner out</strong></span>
+        </div>
+      </div>
+
+      <!-- SATURDAY -->
+      <div class="day-block">
+        <div class="day-header">
+          <div>
+            <span class="day-name">SATURDAY</span>
+            <span class="day-date">May 2</span>
+          </div>
+          <span class="day-vibe">Match Made in Heaven</span>
+        </div>
+        <div class="dots">
+          <div class="dot outline"></div>
+          <div class="dot cream"></div>
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot outline"></div>
+        </div>
+        <p class="day-theme">besties &gt; a literal man</p>
+        <div class="event-row">
+          <span class="event-time">Morning</span>
+          <span class="event-desc"><strong>Breakfast</strong> <em>– Sleep in &amp; recover (massages optional)</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Afternoon</span>
+          <span class="event-desc"><strong>Bagatelle party brunch</strong></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Night</span>
+          <span class="event-desc"><strong>CLUB</strong></span>
+        </div>
+      </div>
+
+      <!-- SUNDAY -->
+      <div class="day-block">
+        <div class="day-header">
+          <div>
+            <span class="day-name">SUNDAY</span>
+            <span class="day-date">May 3</span>
+          </div>
+          <span class="day-vibe">Unwell</span>
+        </div>
+        <div class="dots">
+          <div class="dot filled"></div>
+          <div class="dot filled"></div>
+          <div class="dot cream"></div>
+          <div class="dot cream"></div>
+        </div>
+        <p class="day-theme">airport outfit</p>
+        <div class="event-row">
+          <span class="event-time">Morning</span>
+          <span class="event-desc"><strong>Final Breakfast</strong> <em>– Recap the memories</em></span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">Afternoon</span>
+          <span class="event-desc"><strong>Transport to Airport</strong> <em>– Hasta luego!</em></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section id="details">
+    <div class="section-inner">
+      <h2 class="section-title">Details</h2>
+      <div class="section-divider"></div>
+      <div class="details-grid">
+        <div class="detail-card">
+          <span class="icon">✈️</span>
+          <h3>Destination</h3>
+          <p><strong>Cabo San Lucas</strong><br>Mexico</p>
+        </div>
+        <div class="detail-card">
+          <span class="icon">📅</span>
+          <h3>Dates</h3>
+          <p><strong>April 29 – May 3</strong><br>2026</p>
+        </div>
+        <div class="detail-card">
+          <span class="icon">🏡</span>
+          <h3>Stay</h3>
+          <p><strong>Private Villa</strong><br>Details to follow</p>
+        </div>
+        <div class="detail-card">
+          <span class="icon">🥂</span>
+          <h3>Dress Code</h3>
+          <p>
+            Wed – <em>Sunset ombre</em><br>
+            Thu – <em>Mermaid flowy</em><br>
+            Fri – <em>Spicy night out</em><br>
+            Sat – <em>Match made in heaven</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Questions?</h2>
+      <div class="section-divider"></div>
+      <p class="contact-text">Reach out to your host</p>
+      <p class="contact-name">Text Vida</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Club Cabo &nbsp;·&nbsp; Sara's Bachelorette &nbsp;·&nbsp; April 29 – May 3, 2026</p>
+  </footer>
+
+</body>
+</html>
