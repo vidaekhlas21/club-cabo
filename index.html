@@ -429,59 +429,99 @@
       <!-- Center: palms + THE Bach CLUB with EST / 2026 flanking -->
       <div class="hero-center">
 
-        <!-- Palm tree illustration (behind) -->
-        <svg class="palm-layer" viewBox="0 0 320 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Palm tree illustration -->
+        <svg class="palm-layer" viewBox="0 0 320 235" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke-linecap="round">
 
-          <!-- ═══ LEFT PALM ═══ -->
-          <!-- Trunk -->
-          <path d="M 76 228 C 80 198 88 165 96 138 C 104 110 109 78 113 45"
-                stroke="#7dafc6" stroke-width="9" fill="none" stroke-linecap="round"/>
-          <path d="M 79 212 C 83 190 89 165 95 140"
-                stroke="#a8d4e4" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.45"/>
+            <!-- ══════ LEFT PALM ══════ -->
+            <!-- Trunk -->
+            <path d="M 74 232 C 78 198 86 162 94 132 C 102 104 108 76 112 48"
+                  stroke="#7dafc6" stroke-width="7"/>
+            <!-- Trunk rings (engraving texture) -->
+            <path d="M 77 216 Q 84 213 91 215" stroke="#5a90a8" stroke-width="1.2" opacity="0.55"/>
+            <path d="M 80 198 Q 87 195 93 197" stroke="#5a90a8" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 83 179 Q 90 176 96 178" stroke="#5a90a8" stroke-width="1.2" opacity="0.45"/>
+            <path d="M 86 160 Q 92 157 98 159" stroke="#5a90a8" stroke-width="1.1" opacity="0.4"/>
+            <path d="M 89 141 Q 95 138 101 140" stroke="#5a90a8" stroke-width="1.1" opacity="0.38"/>
+            <!-- Trunk highlight -->
+            <path d="M 76 218 C 80 190 87 162 94 134"
+                  stroke="#b8dcea" stroke-width="2" opacity="0.38"/>
 
-          <!-- LEFT fronds — filled leaf shapes (crown ≈ 113,45) -->
-          <path d="M 113 45 C 86 26 54 8 22 6  C 46 14 84 30 113 45Z"  fill="#7dafc6" opacity="0.88"/>
-          <path d="M 113 45 C 80 36 46 36 10 44 C 46 54 80 54 113 45Z"  fill="#6aa4bb" opacity="0.84"/>
-          <path d="M 113 45 C 86 58 58 72 30 90  C 56 78 84 62 113 45Z"  fill="#7dafc6" opacity="0.80"/>
-          <path d="M 113 45 C 110 20 107 -2 104 -24 C 119 -2 122 20 113 45Z" fill="#8cc3d5" opacity="0.90"/>
-          <path d="M 113 45 C 136 22 160 8 180 -6 C 162 12 138 28 113 45Z"  fill="#7dafc6" opacity="0.88"/>
-          <path d="M 113 45 C 144 36 170 36 202 44 C 170 54 144 54 113 45Z"  fill="#6aa4bb" opacity="0.82"/>
-          <path d="M 113 45 C 138 57 160 70 180 88  C 158 76 136 60 113 45Z"  fill="#7dafc6" opacity="0.78"/>
-          <path d="M 113 45 C 118 64 124 82 126 100 C 119 84 114 66 113 45Z"  fill="#8cc3d5" opacity="0.74"/>
-          <!-- Frond midribs for depth -->
-          <path d="M 113 45 C 78 28 46 14 22 6"   stroke="#5a90a8" stroke-width="1" fill="none" opacity="0.35"/>
-          <path d="M 113 45 C 110 18 106 -6 104 -24" stroke="#5a90a8" stroke-width="1" fill="none" opacity="0.35"/>
-          <path d="M 113 45 C 144 30 168 16 180 -6"  stroke="#5a90a8" stroke-width="1" fill="none" opacity="0.35"/>
-          <!-- Coconuts -->
-          <circle cx="109" cy="54" r="6"   fill="#4e88a0" opacity="0.82"/>
-          <circle cx="118" cy="49" r="5"   fill="#4e88a0" opacity="0.76"/>
-          <circle cx="104" cy="50" r="4.5" fill="#4e88a0" opacity="0.72"/>
+            <!-- LEFT FRONDS — pairs of strokes per direction for engraving look -->
+            <!-- Far upper-left -->
+            <path d="M 112 48 C 84 26 50  8 18 10" stroke="#7dafc6" stroke-width="2.6"/>
+            <path d="M 112 48 C 82 30 48 14 14 18" stroke="#5a90a8" stroke-width="1.4" opacity="0.55"/>
+            <!-- Upper-left -->
+            <path d="M 112 48 C 90 22 62 12 36 20" stroke="#7dafc6" stroke-width="2.4"/>
+            <path d="M 112 48 C 88 26 60 18 32 28" stroke="#5a90a8" stroke-width="1.3" opacity="0.55"/>
+            <!-- Straight left -->
+            <path d="M 112 48 C 82 32 50 38  6 50" stroke="#7dafc6" stroke-width="2.5"/>
+            <path d="M 112 48 C 80 36 48 44  4 58" stroke="#5a90a8" stroke-width="1.4" opacity="0.5"/>
+            <!-- Straight up -->
+            <path d="M 112 48 C 110 24 108  4 106 -18" stroke="#7dafc6" stroke-width="2.4"/>
+            <path d="M 112 48 C 115 24 113  2 111 -18" stroke="#5a90a8" stroke-width="1.3" opacity="0.5"/>
+            <!-- Upper-right -->
+            <path d="M 112 48 C 134 22 160  8 180  6" stroke="#7dafc6" stroke-width="2.4"/>
+            <path d="M 112 48 C 132 26 158 14 176 14" stroke="#5a90a8" stroke-width="1.3" opacity="0.55"/>
+            <!-- Straight right -->
+            <path d="M 112 48 C 140 28 168 30 200 44" stroke="#7dafc6" stroke-width="2.5"/>
+            <path d="M 112 48 C 138 34 166 38 196 54" stroke="#5a90a8" stroke-width="1.4" opacity="0.5"/>
+            <!-- Drooping lower-left -->
+            <path d="M 112 48 C 90 54 66 68 40 86"  stroke="#7dafc6" stroke-width="2.2" opacity="0.88"/>
+            <path d="M 112 48 C 88 58 62 74 36 94"  stroke="#5a90a8" stroke-width="1.2" opacity="0.45"/>
+            <!-- Drooping lower-right -->
+            <path d="M 112 48 C 134 56 156 70 170 90" stroke="#7dafc6" stroke-width="2.2" opacity="0.88"/>
+            <path d="M 112 48 C 136 60 158 76 172 98" stroke="#5a90a8" stroke-width="1.2" opacity="0.45"/>
+            <!-- Coconuts -->
+            <circle cx="109" cy="55" r="5.5" fill="#4e88a0" opacity="0.82"/>
+            <circle cx="118" cy="50" r="4.5" fill="#4e88a0" opacity="0.76"/>
+            <circle cx="105" cy="51" r="4"   fill="#4e88a0" opacity="0.7"/>
 
-          <!-- ═══ RIGHT PALM ═══ -->
-          <!-- Trunk -->
-          <path d="M 244 228 C 240 198 232 165 224 138 C 216 110 211 78 207 45"
-                stroke="#7dafc6" stroke-width="9" fill="none" stroke-linecap="round"/>
-          <path d="M 241 212 C 237 190 231 165 225 140"
-                stroke="#a8d4e4" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.45"/>
+            <!-- ══════ RIGHT PALM ══════ -->
+            <!-- Trunk -->
+            <path d="M 246 232 C 242 198 234 162 226 132 C 218 104 212 76 208 48"
+                  stroke="#7dafc6" stroke-width="7"/>
+            <!-- Trunk rings -->
+            <path d="M 243 216 Q 236 213 229 215" stroke="#5a90a8" stroke-width="1.2" opacity="0.55"/>
+            <path d="M 240 198 Q 233 195 227 197" stroke="#5a90a8" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 237 179 Q 230 176 224 178" stroke="#5a90a8" stroke-width="1.2" opacity="0.45"/>
+            <path d="M 234 160 Q 228 157 222 159" stroke="#5a90a8" stroke-width="1.1" opacity="0.4"/>
+            <path d="M 231 141 Q 225 138 219 140" stroke="#5a90a8" stroke-width="1.1" opacity="0.38"/>
+            <!-- Trunk highlight -->
+            <path d="M 244 218 C 240 190 233 162 226 134"
+                  stroke="#b8dcea" stroke-width="2" opacity="0.38"/>
 
-          <!-- RIGHT fronds — filled leaf shapes (crown ≈ 207,45) -->
-          <path d="M 207 45 C 234 26 266 8 298 6  C 274 14 236 30 207 45Z"  fill="#7dafc6" opacity="0.88"/>
-          <path d="M 207 45 C 240 36 274 36 310 44 C 274 54 240 54 207 45Z"  fill="#6aa4bb" opacity="0.84"/>
-          <path d="M 207 45 C 234 58 262 72 290 90  C 264 78 236 62 207 45Z"  fill="#7dafc6" opacity="0.80"/>
-          <path d="M 207 45 C 210 20 213 -2 216 -24 C 201 -2 198 20 207 45Z" fill="#8cc3d5" opacity="0.90"/>
-          <path d="M 207 45 C 184 22 160 8 140 -6  C 158 12 182 28 207 45Z"  fill="#7dafc6" opacity="0.88"/>
-          <path d="M 207 45 C 176 36 150 36 118 44  C 150 54 176 54 207 45Z"  fill="#6aa4bb" opacity="0.82"/>
-          <path d="M 207 45 C 182 57 160 70 140 88  C 162 76 184 60 207 45Z"  fill="#7dafc6" opacity="0.78"/>
-          <path d="M 207 45 C 202 64 196 82 194 100 C 201 84 206 66 207 45Z"  fill="#8cc3d5" opacity="0.74"/>
-          <!-- Frond midribs for depth -->
-          <path d="M 207 45 C 242 28 274 14 298 6"   stroke="#5a90a8" stroke-width="1" fill="none" opacity="0.35"/>
-          <path d="M 207 45 C 210 18 214 -6 216 -24"  stroke="#5a90a8" stroke-width="1" fill="none" opacity="0.35"/>
-          <path d="M 207 45 C 176 30 152 16 140 -6"   stroke="#5a90a8" stroke-width="1" fill="none" opacity="0.35"/>
-          <!-- Coconuts -->
-          <circle cx="211" cy="54" r="6"   fill="#4e88a0" opacity="0.82"/>
-          <circle cx="202" cy="49" r="5"   fill="#4e88a0" opacity="0.76"/>
-          <circle cx="216" cy="50" r="4.5" fill="#4e88a0" opacity="0.72"/>
+            <!-- RIGHT FRONDS — mirror of left -->
+            <!-- Far upper-right -->
+            <path d="M 208 48 C 236 26 270  8 302 10" stroke="#7dafc6" stroke-width="2.6"/>
+            <path d="M 208 48 C 238 30 272 14 306 18" stroke="#5a90a8" stroke-width="1.4" opacity="0.55"/>
+            <!-- Upper-right -->
+            <path d="M 208 48 C 230 22 258 12 284 20" stroke="#7dafc6" stroke-width="2.4"/>
+            <path d="M 208 48 C 232 26 260 18 288 28" stroke="#5a90a8" stroke-width="1.3" opacity="0.55"/>
+            <!-- Straight right -->
+            <path d="M 208 48 C 238 32 270 38 314 50" stroke="#7dafc6" stroke-width="2.5"/>
+            <path d="M 208 48 C 240 36 272 44 316 58" stroke="#5a90a8" stroke-width="1.4" opacity="0.5"/>
+            <!-- Straight up -->
+            <path d="M 208 48 C 210 24 212  4 214 -18" stroke="#7dafc6" stroke-width="2.4"/>
+            <path d="M 208 48 C 205 24 207  2 209 -18" stroke="#5a90a8" stroke-width="1.3" opacity="0.5"/>
+            <!-- Upper-left -->
+            <path d="M 208 48 C 186 22 160  8 140  6" stroke="#7dafc6" stroke-width="2.4"/>
+            <path d="M 208 48 C 188 26 162 14 144 14" stroke="#5a90a8" stroke-width="1.3" opacity="0.55"/>
+            <!-- Straight left -->
+            <path d="M 208 48 C 180 28 152 30 120 44" stroke="#7dafc6" stroke-width="2.5"/>
+            <path d="M 208 48 C 182 34 154 38 124 54" stroke="#5a90a8" stroke-width="1.4" opacity="0.5"/>
+            <!-- Drooping lower-right -->
+            <path d="M 208 48 C 230 54 254 68 280 86"  stroke="#7dafc6" stroke-width="2.2" opacity="0.88"/>
+            <path d="M 208 48 C 232 58 258 74 284 94"  stroke="#5a90a8" stroke-width="1.2" opacity="0.45"/>
+            <!-- Drooping lower-left -->
+            <path d="M 208 48 C 186 56 164 70 150 90" stroke="#7dafc6" stroke-width="2.2" opacity="0.88"/>
+            <path d="M 208 48 C 184 60 162 76 148 98" stroke="#5a90a8" stroke-width="1.2" opacity="0.45"/>
+            <!-- Coconuts -->
+            <circle cx="211" cy="55" r="5.5" fill="#4e88a0" opacity="0.82"/>
+            <circle cx="202" cy="50" r="4.5" fill="#4e88a0" opacity="0.76"/>
+            <circle cx="215" cy="51" r="4"   fill="#4e88a0" opacity="0.7"/>
 
+          </g>
         </svg>
 
         <!-- EST. / Stack / 2026 -->
