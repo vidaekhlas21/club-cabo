@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Club Cabo – Sara's Bachelorette</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #f5f0eb;
-      --light-blue: #c9dce8;
-      --terracotta: #b85c38;
-      --terracotta-light: #c97a55;
-      --warm-gray: #8a7a70;
-      --stripe-blue: #daeaf4;
+      --cream:       #f7f2ec;
+      --stripe-blue: #d6eaf4;
+      --terracotta:  #c05a2c;
+      --terra-light: #d07848;
+      --warm-gray:   #8a7a70;
+      --palm-blue:   #7dafc6;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,360 +26,379 @@
       overflow-x: hidden;
     }
 
-    /* ── STRIPE BACKGROUND ── */
+    /* ── STRIPES ── */
     .stripe-bg {
       background-color: var(--stripe-blue);
       background-image: repeating-linear-gradient(
         90deg,
-        transparent,
-        transparent 28px,
-        rgba(255,255,255,0.65) 28px,
-        rgba(255,255,255,0.65) 42px
+        rgba(255,255,255,0.72) 0px,
+        rgba(255,255,255,0.72) 18px,
+        transparent 18px,
+        transparent 44px
       );
     }
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 2.5rem;
       padding: 1rem 2rem;
-      background: rgba(245, 240, 235, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(184, 92, 56, 0.15);
+      background: rgba(247,242,236,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(192,90,44,0.12);
     }
-
     nav a {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      text-decoration: none;
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--terracotta); text-decoration: none;
       transition: opacity 0.2s;
     }
-    nav a:hover { opacity: 0.6; }
+    nav a:hover { opacity: 0.55; }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6rem 1rem 4rem;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 1rem 4rem;
     }
 
     .hero-card {
       background: var(--cream);
-      border-radius: 120px 120px 24px 24px;
-      max-width: 440px;
-      width: 100%;
-      padding: 3.5rem 2.5rem 3rem;
+      border-radius: 50% 50% 18px 18px / 60px 60px 18px 18px;
+      max-width: 460px; width: 100%;
+      padding: 2.8rem 2rem 2.8rem;
       text-align: center;
-      box-shadow: 0 8px 60px rgba(184,92,56,0.08);
-    }
-
-    .hero-presents {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--warm-gray);
-      margin-bottom: 0.4rem;
-      display: block;
-    }
-
-    .hero-club-cabo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      color: var(--terracotta);
-      margin-bottom: 1rem;
-    }
-
-    .hero-name {
-      font-family: 'Dancing Script', cursive;
-      font-size: 4rem;
-      font-weight: 700;
-      color: var(--terracotta);
-      line-height: 1.05;
-      display: block;
-    }
-
-    .hero-bach {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3.2rem;
-      font-weight: 500;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 1.2rem;
-    }
-
-    /* Martini SVG */
-    .martini-wrap {
-      margin: 0.5rem auto 1.5rem;
-      width: 140px;
-      height: 140px;
+      box-shadow: 0 12px 70px rgba(192,90,44,0.10), 0 2px 20px rgba(0,0,0,0.06);
       position: relative;
     }
 
-    .martini-wrap svg {
-      width: 100%;
-      height: 100%;
+    /* arched WELCOME TO */
+    .welcome-arc {
+      width: 100%; max-width: 320px; height: 52px;
+      display: block; margin: 0 auto 0.2rem;
+      overflow: visible;
     }
 
-    .hero-weekend {
+    /* center: palms + THE Bach CLUB */
+    .hero-center {
+      position: relative;
+      width: 100%; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    .palm-layer {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 200px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .est-row {
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      transform: translateY(-35%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.2rem;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .est-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--terracotta);
+      letter-spacing: 0.06em;
+    }
+
+    .the-stack {
+      text-align: center;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .hero-the {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.6rem; font-weight: 900;
+      color: var(--terracotta);
+      display: block;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .hero-bach-word {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.2rem; font-weight: 700;
+      color: var(--terracotta);
+      display: block;
+      line-height: 0.95;
+      margin-top: -0.3rem;
+    }
+
+    .hero-club-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 700;
+      color: var(--terracotta);
+      display: block;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .hero-sara-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem; font-weight: 700;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-cabo {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #5a4a3f;
-      margin-bottom: 0.5rem;
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 1rem;
+    }
+
+    .hero-rule {
+      width: 50px; height: 1px;
+      background: var(--terracotta); opacity: 0.35;
+      margin: 0.8rem auto;
     }
 
     .hero-dates {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      color: var(--terracotta-light);
-      margin-bottom: 1rem;
+      font-style: italic;
+      font-size: 1.15rem; color: var(--terra-light);
     }
 
-    .hero-location {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--terracotta);
-      margin-bottom: 0.1rem;
-    }
+    /* ── SHARED SECTION ── */
+    section { padding: 5rem 1.5rem; }
 
-    .hero-country {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--warm-gray);
-    }
-
-    /* ── SECTION SHARED ── */
-    section {
-      padding: 5rem 1.5rem;
-    }
-
-    .section-inner {
-      max-width: 780px;
-      margin: 0 auto;
-    }
+    .section-inner { max-width: 780px; margin: 0 auto; }
 
     .section-title {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      color: var(--terracotta);
-      text-align: center;
-      margin-bottom: 0.3rem;
+      font-size: 3rem; color: var(--terracotta);
+      text-align: center; margin-bottom: 0.3rem;
     }
 
     .section-divider {
-      width: 60px;
-      height: 1px;
-      background: var(--terracotta-light);
+      width: 60px; height: 1px;
+      background: var(--terra-light);
       margin: 0.8rem auto 2.5rem;
-      opacity: 0.5;
+      opacity: 0.45;
     }
 
     /* ── ITINERARY ── */
-    #itinerary {
-      background: #faf7f4;
-    }
+    #itinerary { background: #faf7f3; }
 
     .day-block {
       margin-bottom: 2.8rem;
       padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(184,92,56,0.15);
+      border-bottom: 1px solid rgba(192,90,44,0.12);
     }
     .day-block:last-child { border-bottom: none; margin-bottom: 0; }
 
     .day-header {
-      display: flex;
-      align-items: baseline;
+      display: flex; align-items: baseline;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 0.4rem;
+      flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .day-name {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      color: var(--terracotta);
+      font-size: 0.73rem; font-weight: 700;
+      letter-spacing: 0.18em; color: var(--terracotta);
     }
 
     .day-date {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--terracotta-light);
-      margin-left: 0.6rem;
-      font-weight: 300;
+      font-style: italic; font-size: 1rem;
+      color: var(--terra-light);
+      margin-left: 0.6rem; font-weight: 300;
     }
 
     .day-vibe {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.95rem;
+      font-style: italic; font-size: 0.95rem;
       color: var(--warm-gray);
+    }
+
+    /* palette swatch dots */
+    .palette-dots {
+      display: flex; gap: 6px;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .pdot {
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
     }
 
     .day-theme {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.85rem;
+      font-style: italic; font-size: 0.85rem;
       color: var(--warm-gray);
-      margin-bottom: 1rem;
-      opacity: 0.8;
+      margin-bottom: 1rem; opacity: 0.8;
     }
 
     .event-row {
-      display: flex;
-      gap: 1.2rem;
-      margin-bottom: 0.65rem;
-      align-items: baseline;
+      display: flex; gap: 1.2rem;
+      margin-bottom: 0.65rem; align-items: baseline;
     }
 
     .event-time {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--terracotta-light);
-      min-width: 80px;
-      letter-spacing: 0.05em;
+      font-size: 0.68rem; font-weight: 500;
+      color: var(--terra-light);
+      min-width: 80px; letter-spacing: 0.04em;
+      flex-shrink: 0;
     }
 
     .event-desc {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      color: #3a3228;
-      line-height: 1.4;
+      font-size: 1.05rem; color: #3a3228; line-height: 1.45;
     }
+    .event-desc strong { font-weight: 600; }
+    .event-desc em { color: var(--warm-gray); font-style: italic; }
 
-    .event-desc strong {
-      font-weight: 600;
+    .day-note {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.85rem;
+      color: var(--terracotta);
+      background: rgba(192,90,44,0.07);
+      border-radius: 20px; padding: 0.25rem 0.8rem;
+      margin-bottom: 0.8rem;
     }
-
-    .event-desc em {
-      color: var(--warm-gray);
-      font-style: italic;
-    }
-
-    /* color dots */
-    .dots {
-      display: flex;
-      gap: 5px;
-      margin-bottom: 0.6rem;
-    }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .dot.filled { background: var(--terracotta); }
-    .dot.outline { background: transparent; border: 1.5px solid var(--terracotta); }
-    .dot.cream { background: #d9c9b8; }
-    .dot.light { background: #c0a890; }
-    .dot.star { background: transparent; position: relative; }
 
     /* ── DETAILS ── */
-    #details {
-      background: var(--cream);
-    }
+    #details { background: var(--cream); }
 
     .details-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem; margin-top: 1rem;
     }
 
     .detail-card {
-      background: #faf7f4;
-      border-radius: 16px;
-      padding: 1.8rem 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(184,92,56,0.1);
+      background: #faf7f3; border-radius: 16px;
+      padding: 1.8rem 1.5rem; text-align: center;
+      border: 1px solid rgba(192,90,44,0.1);
+      transition: box-shadow 0.2s;
     }
+    .detail-card:hover { box-shadow: 0 4px 24px rgba(192,90,44,0.1); }
 
-    .detail-card .icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.8rem;
-      display: block;
-    }
+    .detail-card .icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
 
     .detail-card h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.5rem;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--terracotta); margin-bottom: 0.5rem;
     }
 
     .detail-card p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--warm-gray);
-      line-height: 1.5;
+      font-size: 1rem; color: var(--warm-gray); line-height: 1.55;
     }
+    .detail-card p strong { color: #3a3228; }
 
-    .detail-card p strong {
-      color: #3a3228;
+    .villa-link {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(192,90,44,0.4);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
     }
+    .villa-link:hover { opacity: 0.6; }
 
     /* ── CONTACT ── */
-    #contact {
-      background: #faf7f4;
-      text-align: center;
-    }
+    #contact { background: #faf7f3; text-align: center; }
 
     .contact-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      color: var(--warm-gray);
-      margin-bottom: 0.3rem;
+      font-size: 1.15rem; color: var(--warm-gray); margin-bottom: 0.3rem;
     }
-
     .contact-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--terracotta);
+      font-size: 1.4rem; font-weight: 600; color: var(--terracotta);
     }
 
     /* ── FOOTER ── */
     footer {
-      text-align: center;
-      padding: 2rem 1rem;
+      text-align: center; padding: 2rem 1rem;
       background: var(--cream);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(58,50,40,0.35);
+      font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(58,50,40,0.32);
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 560px) {
-      .hero-club-cabo { font-size: 1.5rem; }
-      .hero-name { font-size: 3rem; }
-      .hero-bach { font-size: 2.5rem; }
-      .day-header { flex-direction: column; gap: 0.2rem; }
-      .day-vibe { margin-top: 0; }
-      nav { gap: 1.2rem; }
-      nav a { font-size: 0.58rem; }
+
+    /* Make SVGs fluid */
+    .welcome-arc {
+      width: 100%;
+      max-width: 320px;
+    }
+    .palm-layer {
+      width: 90%;
+      max-width: 300px;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        gap: 0.9rem;
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a { font-size: 0.54rem; letter-spacing: 0.13em; }
+
+      .hero-card {
+        padding: 2rem 1.4rem 2.2rem;
+        border-radius: 40% 40% 14px 14px / 50px 50px 14px 14px;
+      }
+      .hero-center { height: 170px; }
+      .hero-the  { font-size: 2.6rem; }
+      .hero-bach-word { font-size: 3.2rem; }
+      .hero-club-word { font-size: 2.2rem; }
+      .hero-sara-script { font-size: 2.4rem; }
+      .est-label { font-size: 0.82rem; }
+      .est-row { padding: 0 0.6rem; }
+
+      .section-title { font-size: 2.4rem; }
+      .day-header { flex-direction: column; gap: 0.25rem; }
+      .day-vibe { font-size: 0.88rem; }
+      .event-time { min-width: 72px; font-size: 0.62rem; }
+      .event-desc { font-size: 0.98rem; }
+
+      .details-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .detail-card { padding: 1.4rem 1rem; }
+      .detail-card p { font-size: 0.9rem; }
+    }
+
+    @media (max-width: 360px) {
+      .hero-the  { font-size: 2.2rem; }
+      .hero-bach-word { font-size: 2.8rem; }
+      .hero-club-word { font-size: 1.9rem; }
+      .hero-sara-script { font-size: 2rem; }
+      .hero-center { height: 150px; }
+      .est-label { font-size: 0.7rem; }
+      .details-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -396,50 +415,76 @@
   <!-- HERO -->
   <section class="hero stripe-bg" id="hero">
     <div class="hero-card">
-      <span class="hero-club-cabo">CLUB CABO</span>
-      <span class="hero-presents">presents</span>
-      <span class="hero-name">Sara's</span>
-      <span class="hero-bach">Bachelorette</span>
 
-      <!-- Martini illustration -->
-      <div class="martini-wrap">
-        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- sparkles -->
-          <g fill="#b85c38" opacity="0.85">
-            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.7) translate(16,20)"/>
-            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.7) translate(105,20)"/>
-            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.55) translate(14,95)"/>
-            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.55) translate(185,95)"/>
-            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.45) translate(50,165)"/>
-            <polygon points="30,55 32,60 37,60 33,63 35,68 30,65 25,68 27,63 23,60 28,60" transform="scale(0.45) translate(215,165)"/>
+      <!-- WELCOME TO arc -->
+      <svg class="welcome-arc" viewBox="0 0 320 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="arc1" d="M 30,50 A 130,130 0 0,1 290,50"/>
+        </defs>
+        <text fill="#c05a2c" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="600">
+          <textPath href="#arc1" startOffset="50%" text-anchor="middle" letter-spacing="4">WELCOME TO</textPath>
+        </text>
+      </svg>
+
+      <!-- Center: palms + THE Bach CLUB with EST / 2026 flanking -->
+      <div class="hero-center">
+
+        <!-- Palm tree illustration (behind) -->
+        <svg class="palm-layer" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#7dafc6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- Left trunk -->
+            <path d="M 82 198 Q 88 168 96 138 Q 104 108 110 80 Q 114 62 117 48" stroke-width="5.5"/>
+            <!-- Left fronds -->
+            <path d="M 117 48 Q 96 34 72 44" stroke-width="2.5"/>
+            <path d="M 117 48 Q 108 18 106 4" stroke-width="2.5"/>
+            <path d="M 117 48 Q 138 28 150 38" stroke-width="2.5"/>
+            <path d="M 117 48 Q 84 52 68 68" stroke-width="2.2"/>
+            <path d="M 117 48 Q 148 56 158 70" stroke-width="2.2"/>
+            <path d="M 117 48 Q 130 32 142 26" stroke-width="2"/>
+            <!-- Left frond midribs -->
+            <path d="M 117 48 Q 100 38 82 42" stroke-width="1" opacity="0.45"/>
+            <path d="M 117 48 Q 114 28 110 10" stroke-width="1" opacity="0.45"/>
+            <!-- Left coconuts -->
+            <circle cx="114" cy="55" r="4" fill="#7dafc6" opacity="0.65" stroke="none"/>
+            <circle cx="121" cy="51" r="3.2" fill="#7dafc6" opacity="0.55" stroke="none"/>
+
+            <!-- Right trunk -->
+            <path d="M 218 198 Q 212 168 204 138 Q 196 108 190 80 Q 186 62 183 48" stroke-width="5.5"/>
+            <!-- Right fronds -->
+            <path d="M 183 48 Q 204 34 228 44" stroke-width="2.5"/>
+            <path d="M 183 48 Q 192 18 194 4" stroke-width="2.5"/>
+            <path d="M 183 48 Q 162 28 150 38" stroke-width="2.5"/>
+            <path d="M 183 48 Q 216 52 232 68" stroke-width="2.2"/>
+            <path d="M 183 48 Q 152 56 142 70" stroke-width="2.2"/>
+            <path d="M 183 48 Q 170 32 158 26" stroke-width="2"/>
+            <!-- Right frond midribs -->
+            <path d="M 183 48 Q 200 38 218 42" stroke-width="1" opacity="0.45"/>
+            <path d="M 183 48 Q 186 28 190 10" stroke-width="1" opacity="0.45"/>
+            <!-- Right coconuts -->
+            <circle cx="186" cy="55" r="4" fill="#7dafc6" opacity="0.65" stroke="none"/>
+            <circle cx="179" cy="51" r="3.2" fill="#7dafc6" opacity="0.55" stroke="none"/>
           </g>
-          <!-- glass body -->
-          <path d="M35 32 L80 90 L125 32 Z" stroke="#b85c38" stroke-width="2" fill="rgba(220,190,175,0.18)" stroke-linejoin="round"/>
-          <!-- stem -->
-          <line x1="80" y1="90" x2="80" y2="130" stroke="#b85c38" stroke-width="2"/>
-          <!-- base -->
-          <ellipse cx="80" cy="131" rx="20" ry="5" stroke="#b85c38" stroke-width="2" fill="none"/>
-          <!-- liquid shimmer dots -->
-          <circle cx="70" cy="65" r="3" fill="#e8c4b8" opacity="0.7"/>
-          <circle cx="82" cy="72" r="2.5" fill="#e8c4b8" opacity="0.6"/>
-          <circle cx="90" cy="60" r="2" fill="#e8c4b8" opacity="0.5"/>
-          <circle cx="76" cy="55" r="1.8" fill="#e8c4b8" opacity="0.5"/>
-          <!-- citrus wheel -->
-          <circle cx="96" cy="42" r="9" stroke="#b85c38" stroke-width="1.5" fill="rgba(220,190,140,0.3)"/>
-          <line x1="96" y1="33" x2="96" y2="51" stroke="#b85c38" stroke-width="1"/>
-          <line x1="87" y1="42" x2="105" y2="42" stroke="#b85c38" stroke-width="1"/>
-          <line x1="90" y1="36" x2="102" y2="48" stroke="#b85c38" stroke-width="1"/>
-          <line x1="90" y1="48" x2="102" y2="36" stroke="#b85c38" stroke-width="1"/>
-          <!-- cocktail pick / straw -->
-          <line x1="100" y1="28" x2="72" y2="75" stroke="#b85c38" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="100" cy="26" r="4" fill="#b85c38" opacity="0.6"/>
         </svg>
-      </div>
 
-      <p class="hero-weekend">Bachelorette Weekend</p>
+        <!-- EST. / Stack / 2026 -->
+        <div class="est-row">
+          <span class="est-label">EST.</span>
+          <div class="the-stack">
+            <span class="hero-the">THE</span>
+            <span class="hero-bach-word">Bach</span>
+            <span class="hero-club-word">CLUB</span>
+          </div>
+          <span class="est-label">2026</span>
+        </div>
+
+      </div><!-- /.hero-center -->
+
+      <div class="hero-rule"></div>
+
+      <span class="hero-sara-script">Sara's Bachelorette</span>
+      <p class="hero-cabo">Cabo San Lucas &nbsp;·&nbsp; Mexico</p>
       <p class="hero-dates">April 29 – May 3, 2026</p>
-      <p class="hero-location">Cabo San Lucas</p>
-      <p class="hero-country">Mexico</p>
+
     </div>
   </section>
 
@@ -458,21 +503,19 @@
           </div>
           <span class="day-vibe">Golden Hour, Tequila Sunset</span>
         </div>
-        <div class="dots">
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot cream"></div>
+        <!-- sunset palette: yellow, orange, amber, light brown, burgundy, beige -->
+        <div class="palette-dots">
+          <div class="pdot" style="background:#f9e04b;"></div>
+          <div class="pdot" style="background:#f4a13a;"></div>
+          <div class="pdot" style="background:#e07030;"></div>
+          <div class="pdot" style="background:#c07840;"></div>
+          <div class="pdot" style="background:#8b3a2a;"></div>
+          <div class="pdot" style="background:#f0e0c8;"></div>
         </div>
         <p class="day-theme">think sunset ombre</p>
         <div class="event-row">
-          <span class="event-time">12:00 PM</span>
-          <span class="event-desc"><strong>Arrive in Cabo</strong> <em>– Transport to villa</em></span>
-        </div>
-        <div class="event-row">
           <span class="event-time">1:00 PM</span>
-          <span class="event-desc"><strong>Welcome Drinks + Apps</strong> <em>– Poolside</em></span>
+          <span class="event-desc"><strong>Welcome Drinks</strong> <em>– Poolside</em></span>
         </div>
         <div class="event-row">
           <span class="event-time">2:00 PM</span>
@@ -493,29 +536,28 @@
           </div>
           <span class="day-vibe">Mermaids Gone Wild</span>
         </div>
-        <div class="dots">
-          <div class="dot outline"></div>
-          <div class="dot cream"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
+        <!-- mermaid palette: blues, turquoise, aqua -->
+        <div class="palette-dots">
+          <div class="pdot" style="background:#1a80c4;"></div>
+          <div class="pdot" style="background:#00b4d8;"></div>
+          <div class="pdot" style="background:#48cae4;"></div>
+          <div class="pdot" style="background:#00c8b4;"></div>
+          <div class="pdot" style="background:#90e0ef;"></div>
+          <div class="pdot" style="background:#caf0f8;"></div>
         </div>
         <p class="day-theme">flowy it girl mermaid</p>
+        <span class="day-note">💙 please wear a blue swimsuit</span>
         <div class="event-row">
-          <span class="event-time">Morning</span>
-          <span class="event-desc"><strong>Breakfast</strong> <em>– At the villa</em></span>
-        </div>
-        <div class="event-row">
-          <span class="event-time">11:00 AM</span>
-          <span class="event-desc"><strong>BOAT DAY</strong> <em>– Private yacht, open bar, snorkeling</em></span>
+          <span class="event-time">10:00 AM</span>
+          <span class="event-desc"><strong>Boat Charter</strong> <em>– Private catamaran, breakfast &amp; lunch on the boat, open bar, snorkeling</em></span>
         </div>
         <div class="event-row">
           <span class="event-time">Afternoon</span>
-          <span class="event-desc"><strong>Villa Day Party</strong> <em>– Pool time &amp; brunch/lunch</em></span>
+          <span class="event-desc"><strong>Villa Day Party</strong> <em>– Pool time &amp; lunch, games at the villa</em></span>
         </div>
         <div class="event-row">
           <span class="event-time">Evening</span>
-          <span class="event-desc"><strong>Dinner at villa</strong></span>
+          <span class="event-desc"><strong>Dinner at the Villa</strong> <em>– Private chef</em></span>
         </div>
       </div>
 
@@ -528,29 +570,27 @@
           </div>
           <span class="day-vibe">Fuego Friday</span>
         </div>
-        <div class="dots">
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
+        <!-- fuego palette: red, black, orange, yellow, brown, gold -->
+        <div class="palette-dots">
+          <div class="pdot" style="background:#c8151a;"></div>
+          <div class="pdot" style="background:#1a1a1a;"></div>
+          <div class="pdot" style="background:#f06000;"></div>
+          <div class="pdot" style="background:#f0c000;"></div>
+          <div class="pdot" style="background:#6b3a1f;"></div>
+          <div class="pdot" style="background:#c89820;"></div>
         </div>
         <p class="day-theme">spicy night out</p>
         <div class="event-row">
           <span class="event-time">Morning</span>
-          <span class="event-desc"><strong>Breakfast</strong> <em>– Leisurely morning</em></span>
-        </div>
-        <div class="event-row">
-          <span class="event-time">11:00 AM</span>
-          <span class="event-desc"><strong>Tequila Tasting</strong> <em>– At villa</em></span>
+          <span class="event-desc"><strong>Breakfast</strong> <em>– At the villa</em></span>
         </div>
         <div class="event-row">
           <span class="event-time">Afternoon</span>
-          <span class="event-desc"><strong>Beach Club</strong> <em>– Private cabana, vibes &amp; music</em></span>
+          <span class="event-desc"><strong>Beach Club</strong> <em>– Taboo</em></span>
         </div>
         <div class="event-row">
           <span class="event-time">Evening</span>
-          <span class="event-desc"><strong>Dinner out</strong></span>
+          <span class="event-desc"><strong>Dinner Party</strong> <em>– Rosa Negra</em></span>
         </div>
       </div>
 
@@ -563,25 +603,27 @@
           </div>
           <span class="day-vibe">Match Made in Heaven</span>
         </div>
-        <div class="dots">
-          <div class="dot outline"></div>
-          <div class="dot cream"></div>
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot outline"></div>
+        <!-- match palette: white, ivory, pale blue, pale pink, pale yellow, neutral -->
+        <div class="palette-dots">
+          <div class="pdot" style="background:#ffffff;"></div>
+          <div class="pdot" style="background:#f5f0e2;"></div>
+          <div class="pdot" style="background:#daeef8;"></div>
+          <div class="pdot" style="background:#fad4dc;"></div>
+          <div class="pdot" style="background:#fdf5c8;"></div>
+          <div class="pdot" style="background:#d4c4b0;"></div>
         </div>
         <p class="day-theme">besties &gt; a literal man</p>
         <div class="event-row">
           <span class="event-time">Morning</span>
-          <span class="event-desc"><strong>Breakfast</strong> <em>– Sleep in &amp; recover (massages optional)</em></span>
+          <span class="event-desc"><strong>Breakfast</strong> <em>– Sleep in &amp; recover</em></span>
         </div>
         <div class="event-row">
-          <span class="event-time">Afternoon</span>
-          <span class="event-desc"><strong>Bagatelle party brunch</strong></span>
+          <span class="event-time">3:00 PM</span>
+          <span class="event-desc"><strong>Bagatelle Party Brunch</strong></span>
         </div>
         <div class="event-row">
           <span class="event-time">Night</span>
-          <span class="event-desc"><strong>CLUB</strong></span>
+          <span class="event-desc"><strong>Club Night</strong> <em>– Downtown Cabo (Squid Row or Mandala)</em></span>
         </div>
       </div>
 
@@ -594,11 +636,12 @@
           </div>
           <span class="day-vibe">Unwell</span>
         </div>
-        <div class="dots">
-          <div class="dot filled"></div>
-          <div class="dot filled"></div>
-          <div class="dot cream"></div>
-          <div class="dot cream"></div>
+        <!-- airport/unwell: soft grays & neutrals -->
+        <div class="palette-dots">
+          <div class="pdot" style="background:#c8c0b8;"></div>
+          <div class="pdot" style="background:#a8a0a0;"></div>
+          <div class="pdot" style="background:#e8e0d8;"></div>
+          <div class="pdot" style="background:#808080;"></div>
         </div>
         <p class="day-theme">airport outfit</p>
         <div class="event-row">
@@ -620,31 +663,37 @@
       <h2 class="section-title">Details</h2>
       <div class="section-divider"></div>
       <div class="details-grid">
+
         <div class="detail-card">
           <span class="icon">✈️</span>
           <h3>Destination</h3>
           <p><strong>Cabo San Lucas</strong><br>Mexico</p>
         </div>
+
         <div class="detail-card">
           <span class="icon">📅</span>
           <h3>Dates</h3>
-          <p><strong>April 29 – May 3</strong><br>2026</p>
+          <p><strong>April 29 – May 3</strong><br>2026<br><em style="font-size:0.9rem;">Wed – Sun, 5 nights</em></p>
         </div>
+
         <div class="detail-card">
           <span class="icon">🏡</span>
-          <h3>Stay</h3>
-          <p><strong>Private Villa</strong><br>Details to follow</p>
+          <h3>The Villa</h3>
+          <p><strong>Villa Clara Vista</strong><br>Private villa rental</p>
+          <a class="villa-link" href="https://www.cabovillas.com/villa-rentals/villa-clara-vista" target="_blank" rel="noopener">View Villa →</a>
         </div>
+
         <div class="detail-card">
-          <span class="icon">🥂</span>
-          <h3>Dress Code</h3>
+          <span class="icon">👗</span>
+          <h3>Dress Codes</h3>
           <p>
             Wed – <em>Sunset ombre</em><br>
             Thu – <em>Mermaid flowy</em><br>
-            Fri – <em>Spicy night out</em><br>
-            Sat – <em>Match made in heaven</em>
+            Fri – <em>Fuego night out</em><br>
+            Sat – <em>Soft &amp; bridal</em>
           </p>
         </div>
+
       </div>
     </div>
   </section>
@@ -661,7 +710,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>Club Cabo &nbsp;·&nbsp; Sara's Bachelorette &nbsp;·&nbsp; April 29 – May 3, 2026</p>
+    <p>Club Cabo &nbsp;·&nbsp; Sara's Bachelorette &nbsp;·&nbsp; April 29 – May 3, 2026 &nbsp;·&nbsp; Cabo San Lucas</p>
   </footer>
 
 </body>
