@@ -73,108 +73,83 @@
       position: relative;
     }
 
-    /* arched WELCOME TO */
-    .welcome-arc {
-      width: 100%; max-width: 320px; height: 52px;
-      display: block; margin: 0 auto 0.2rem;
-      overflow: visible;
-    }
-
-    /* center: palms + THE Bach CLUB */
-    .hero-center {
-      position: relative;
-      width: 100%; height: 200px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0.2rem 0 0.4rem;
-    }
-
-    .palm-layer {
-      position: absolute;
-      top: 0; left: 50%; transform: translateX(-50%);
-      width: 300px; height: 200px;
-      opacity: 0.55;
-      pointer-events: none;
-    }
-
-    .est-row {
-      position: absolute;
-      top: 50%; left: 0; right: 0;
-      transform: translateY(-35%);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1.2rem;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .est-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; font-weight: 600;
-      color: var(--terracotta);
-      letter-spacing: 0.06em;
-    }
-
-    .the-stack {
-      text-align: center;
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .hero-the {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem; font-weight: 400;
+    .hero-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.45rem; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
       color: var(--terracotta);
       display: block;
-      letter-spacing: 0.28em;
-      line-height: 1;
+      margin-bottom: 0.1rem;
     }
 
-    .hero-bach-word {
-      font-family: 'Dancing Script', cursive;
-      font-size: 4.8rem; font-weight: 700;
-      color: var(--terracotta);
-      display: block;
-      line-height: 0.88;
-      transform: rotate(-6deg);
-      margin: 0.15rem 0;
-    }
-
-    .hero-club-word {
+    .hero-presents {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem; font-weight: 400;
-      color: var(--terracotta);
+      font-style: italic;
+      font-size: 1rem; font-weight: 300;
+      color: var(--warm-gray);
       display: block;
-      letter-spacing: 0.28em;
-      line-height: 1;
+      margin-bottom: 0.6rem;
     }
 
     .hero-sara-script {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem; font-weight: 700;
+      font-size: 4.6rem; font-weight: 700;
       color: var(--terracotta);
       display: block;
-      margin-bottom: 0.3rem;
+      line-height: 0.95;
     }
 
-    .hero-cabo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem; font-weight: 500;
-      letter-spacing: 0.26em; text-transform: uppercase;
-      color: var(--warm-gray);
-      margin-bottom: 1rem;
+    .hero-bach-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.6rem; font-weight: 700;
+      color: var(--terracotta);
+      display: block;
+      line-height: 0.95;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-palm-wrap {
+      margin: 0 auto 1.2rem;
+      display: flex; justify-content: center;
     }
 
     .hero-rule {
       width: 50px; height: 1px;
       background: var(--terracotta); opacity: 0.35;
-      margin: 0.8rem auto;
+      margin: 0 auto 0.9rem;
+    }
+
+    .hero-weekend {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.4rem;
     }
 
     .hero-dates {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.15rem; color: var(--terra-light);
+      font-size: 1.2rem; color: var(--terra-light);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-city {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--terracotta);
+      display: block;
+    }
+
+    .hero-country {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem; font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--warm-gray);
+      display: block;
     }
 
     /* ── SHARED SECTION ── */
@@ -350,16 +325,6 @@
 
     /* ── RESPONSIVE ── */
 
-    /* Make SVGs fluid */
-    .welcome-arc {
-      width: 100%;
-      max-width: 320px;
-    }
-    .palm-layer {
-      width: 90%;
-      max-width: 300px;
-    }
-
     @media (max-width: 480px) {
       nav {
         gap: 0.9rem;
@@ -373,13 +338,9 @@
         padding: 2rem 1.4rem 2.2rem;
         border-radius: 40% 40% 14px 14px / 50px 50px 14px 14px;
       }
-      .hero-center { height: 170px; }
-      .hero-the  { font-size: 2rem; letter-spacing: 0.2em; }
-      .hero-bach-word { font-size: 3.6rem; }
-      .hero-club-word { font-size: 2rem; letter-spacing: 0.2em; }
-      .hero-sara-script { font-size: 2.4rem; }
-      .est-label { font-size: 0.82rem; }
-      .est-row { padding: 0 0.6rem; }
+      .hero-brand { font-size: 1.15rem; }
+      .hero-sara-script { font-size: 3.8rem; }
+      .hero-bach-script  { font-size: 3.8rem; }
 
       .section-title { font-size: 2.4rem; }
       .day-header { flex-direction: column; gap: 0.25rem; }
@@ -393,12 +354,9 @@
     }
 
     @media (max-width: 360px) {
-      .hero-the  { font-size: 1.7rem; }
-      .hero-bach-word { font-size: 3rem; }
-      .hero-club-word { font-size: 1.7rem; }
-      .hero-sara-script { font-size: 2rem; }
-      .hero-center { height: 150px; }
-      .est-label { font-size: 0.7rem; }
+      .hero-brand { font-size: 1rem; }
+      .hero-sara-script { font-size: 3.2rem; }
+      .hero-bach-script  { font-size: 3.2rem; }
       .details-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -417,76 +375,60 @@
   <section class="hero stripe-bg" id="hero">
     <div class="hero-card">
 
-      <!-- WELCOME TO arc -->
-      <svg class="welcome-arc" viewBox="0 0 320 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <path id="arc1" d="M 30,50 A 130,130 0 0,1 290,50"/>
-        </defs>
-        <text fill="#c05a2c" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="600">
-          <textPath href="#arc1" startOffset="50%" text-anchor="middle" letter-spacing="4">WELCOME TO</textPath>
-        </text>
-      </svg>
+      <span class="hero-brand">Club Cabo</span>
+      <span class="hero-presents">presents</span>
 
-      <!-- Center: palms + THE Bach CLUB with EST / 2026 flanking -->
-      <div class="hero-center">
+      <span class="hero-sara-script">Sara's</span>
+      <span class="hero-bach-script">Bachelorette</span>
 
-        <!-- Palm tree illustration — clean simple style -->
-        <svg class="palm-layer" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#7dafc6" stroke-linecap="round" fill="none">
+      <!-- Cute palm tree illustration -->
+      <div class="hero-palm-wrap">
+        <svg viewBox="0 0 160 132" width="160" height="132" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#c05a2c" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="1.7">
+            <!-- LEFT trunk — gentle lean inward -->
+            <path d="M 42 130 C 44 106 48 80 53 58 C 56 44 58 34 60 24"/>
+            <!-- Left fronds -->
+            <path d="M 60 24 C 44 12 24  4  4  6"/>
+            <path d="M 60 24 C 48  8 30  4 14 10"/>
+            <path d="M 60 24 C 46 18 30 22  8 30"/>
+            <path d="M 60 24 C 58  8 56 -4 54 -14"/>
+            <path d="M 60 24 C 72  8 86  2 100  4"/>
+            <path d="M 60 24 C 70 16 82 18 100 24"/>
+            <path d="M 60 24 C 50 32 38 44 28 58"/>
+            <!-- Left coconuts -->
+            <circle cx="57" cy="29" r="3.2" fill="#c05a2c" stroke="none"/>
+            <circle cx="64" cy="25" r="2.5" fill="#c05a2c" stroke="none"/>
 
-            <!-- LEFT PALM trunk -->
-            <path d="M 72 220 C 76 186 84 152 92 124 C 99 97 104 70 108 44" stroke-width="6.5"/>
-            <!-- Left palm fronds -->
-            <path d="M 108 44 C 80 22 50  6 16  8" stroke-width="2.8"/>
-            <path d="M 108 44 C 86 16 56  8 30 16" stroke-width="2.6"/>
-            <path d="M 108 44 C 76 30 46 38  4 52" stroke-width="2.7"/>
-            <path d="M 108 44 C 106 18 104  0 102 -20" stroke-width="2.5"/>
-            <path d="M 108 44 C 130 16 156  4 180  6" stroke-width="2.6"/>
-            <path d="M 108 44 C 136 26 162 30 198 44" stroke-width="2.7"/>
-            <path d="M 108 44 C 86 54 62 70 38 88" stroke-width="2.4"/>
-            <path d="M 108 44 C 130 56 152 70 168 90" stroke-width="2.4"/>
-            <!-- Coconuts -->
-            <circle cx="105" cy="51" r="5"   fill="#4e88a0" stroke="none" opacity="0.78"/>
-            <circle cx="114" cy="46" r="4"   fill="#4e88a0" stroke="none" opacity="0.7"/>
-            <circle cx="100" cy="47" r="3.5" fill="#4e88a0" stroke="none" opacity="0.65"/>
+            <!-- RIGHT trunk — mirror lean -->
+            <path d="M 118 130 C 116 106 112 80 107 58 C 104 44 102 34 100 24"/>
+            <!-- Right fronds -->
+            <path d="M 100 24 C 116 12 136  4 156  6"/>
+            <path d="M 100 24 C 112  8 130  4 146 10"/>
+            <path d="M 100 24 C 114 18 130 22 152 30"/>
+            <path d="M 100 24 C 102  8 104 -4 106 -14"/>
+            <path d="M 100 24 C  88  8  74  2  60  4"/>
+            <path d="M 100 24 C  90 16  78 18  60 24"/>
+            <path d="M 100 24 C 110 32 122 44 132 58"/>
+            <!-- Right coconuts -->
+            <circle cx="103" cy="29" r="3.2" fill="#c05a2c" stroke="none"/>
+            <circle cx="96"  cy="25" r="2.5" fill="#c05a2c" stroke="none"/>
 
-            <!-- RIGHT PALM trunk -->
-            <path d="M 248 220 C 244 186 236 152 228 124 C 221 97 216 70 212 44" stroke-width="6.5"/>
-            <!-- Right palm fronds -->
-            <path d="M 212 44 C 240 22 270  6 304  8" stroke-width="2.8"/>
-            <path d="M 212 44 C 234 16 264  8 290 16" stroke-width="2.6"/>
-            <path d="M 212 44 C 244 30 274 38 316 52" stroke-width="2.7"/>
-            <path d="M 212 44 C 214 18 216  0 218 -20" stroke-width="2.5"/>
-            <path d="M 212 44 C 190 16 164  4 140  6" stroke-width="2.6"/>
-            <path d="M 212 44 C 184 26 158 30 122 44" stroke-width="2.7"/>
-            <path d="M 212 44 C 234 54 258 70 282 88" stroke-width="2.4"/>
-            <path d="M 212 44 C 190 56 168 70 152 90" stroke-width="2.4"/>
-            <!-- Coconuts -->
-            <circle cx="215" cy="51" r="5"   fill="#4e88a0" stroke="none" opacity="0.78"/>
-            <circle cx="206" cy="46" r="4"   fill="#4e88a0" stroke="none" opacity="0.7"/>
-            <circle cx="220" cy="47" r="3.5" fill="#4e88a0" stroke="none" opacity="0.65"/>
-
+            <!-- Sparkle stars -->
+            <path d="M 80 10 L 80 16 M 77 13 L 83 13" stroke-width="1.3"/>
+            <path d="M 28 44 L 28 48 M 26 46 L 30 46" stroke-width="1.1"/>
+            <path d="M 132 44 L 132 48 M 130 46 L 134 46" stroke-width="1.1"/>
+            <circle cx="16"  cy="58" r="1.4" fill="#c05a2c" stroke="none"/>
+            <circle cx="144" cy="58" r="1.4" fill="#c05a2c" stroke="none"/>
+            <circle cx="80"  cy="74" r="1.4" fill="#c05a2c" stroke="none"/>
           </g>
         </svg>
-
-        <!-- EST. / Stack / 2026 -->
-        <div class="est-row">
-          <span class="est-label">EST.</span>
-          <div class="the-stack">
-            <span class="hero-the">THE</span>
-            <span class="hero-bach-word">Bach</span>
-            <span class="hero-club-word">CLUB</span>
-          </div>
-          <span class="est-label">2026</span>
-        </div>
-
-      </div><!-- /.hero-center -->
+      </div>
 
       <div class="hero-rule"></div>
-
-      <span class="hero-sara-script">Sara's Bachelorette</span>
-      <p class="hero-cabo">Cabo San Lucas &nbsp;·&nbsp; Mexico</p>
-      <p class="hero-dates">April 29 – May 3, 2026</p>
+      <span class="hero-weekend">Bachelorette Weekend</span>
+      <span class="hero-dates">April 29 – May 3, 2026</span>
+      <span class="hero-city">Cabo San Lucas</span>
+      <span class="hero-country">Mexico</span>
 
     </div>
   </section>
