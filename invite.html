@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Club Cabo – Sara's Bach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #d6eaf4;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.72) 0px, rgba(255,255,255,0.72) 18px,
+        transparent 18px, transparent 44px
+      );
+      min-height: 100vh;
+      font-family: 'Cormorant Garamond', serif;
+      padding: 2rem 1rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    /* ── TITLE CARD ── */
+    .title-card {
+      background: #f7f2ec;
+      border-radius: 44% 44% 16px 16px / 56px 56px 16px 16px;
+      max-width: 400px; width: 100%;
+      padding: 2.4rem 1.8rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(192,90,44,0.12);
+    }
+
+    .tc-welcome {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.22em; color: #c05a2c;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .tc-palms {
+      width: 100%; max-width: 280px;
+      height: 170px;
+      display: block; margin: 0 auto;
+    }
+
+    .tc-the { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: #c05a2c; display: block; line-height: 1; letter-spacing: 0.06em; }
+    .tc-bach { font-family: 'Dancing Script', cursive; font-size: 3.8rem; font-weight: 700; color: #c05a2c; display: block; line-height: 0.95; margin-top: -0.2rem; }
+    .tc-club { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: #c05a2c; display: block; line-height: 1; letter-spacing: 0.12em; }
+
+    .tc-est-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin: -130px 0 0;
+      padding: 0 0.5rem;
+      pointer-events: none;
+    }
+    .tc-est { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: #c05a2c; }
+
+    .tc-palm-block {
+      position: relative;
+      width: 100%; max-width: 280px;
+      margin: 0 auto;
+    }
+    .tc-text-over {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -46%);
+      text-align: center;
+      width: 100%;
+    }
+
+    .tc-rule { width: 44px; height: 1px; background: #c05a2c; opacity: 0.3; margin: 1rem auto 0.8rem; }
+
+    .tc-sara { font-family: 'Dancing Script', cursive; font-size: 2.6rem; font-weight: 700; color: #c05a2c; display: block; }
+    .tc-cabo { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; color: #8a7a70; margin-bottom: 0.6rem; }
+    .tc-dates { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: #d07848; }
+
+    /* ── ITINERARY CARD ── */
+    .itin-card {
+      background: #f7f2ec;
+      border-radius: 16px;
+      max-width: 400px; width: 100%;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 6px 36px rgba(192,90,44,0.10);
+    }
+
+    .itin-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem; color: #c05a2c;
+      text-align: center; margin-bottom: 0.2rem;
+    }
+    .itin-rule { width: 50px; height: 1px; background: #d07848; opacity: 0.4; margin: 0.5rem auto 1.6rem; }
+
+    .day { margin-bottom: 1.6rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(192,90,44,0.12); }
+    .day:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .day-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.4rem;
+    }
+    .d-name { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; color: #c05a2c; }
+    .d-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: #d07848; font-weight: 300; }
+    .d-vibe { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.88rem; color: #8a7a70; width: 100%; }
+
+    .d-dots { display: flex; gap: 5px; margin: 0.4rem 0 0.6rem; flex-wrap: wrap; }
+    .d-dot { width: 11px; height: 11px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.07); flex-shrink: 0; }
+
+    .ev { display: flex; gap: 0.9rem; margin-bottom: 0.45rem; align-items: baseline; }
+    .ev-t { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 500; color: #d07848; min-width: 72px; flex-shrink: 0; letter-spacing: 0.03em; }
+    .ev-d { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: #3a3228; line-height: 1.4; }
+    .ev-d strong { font-weight: 600; }
+    .ev-d em { color: #8a7a70; font-style: italic; }
+
+    .d-note { display: inline-block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: #c05a2c; background: rgba(192,90,44,0.07); border-radius: 20px; padding: 0.2rem 0.7rem; margin-bottom: 0.6rem; }
+
+    /* ── COPY BUTTON ── */
+    .copy-wrap {
+      max-width: 400px; width: 100%;
+      display: flex; flex-direction: column; gap: 0.7rem;
+    }
+
+    .btn {
+      display: block; width: 100%;
+      padding: 0.9rem 1rem;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer; border: none;
+      transition: opacity 0.2s, transform 0.1s;
+      text-align: center; text-decoration: none;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-copy { background: #c05a2c; color: #fff; }
+    .btn-copy:hover { opacity: 0.88; }
+    .btn-site { background: transparent; color: #c05a2c; border: 1.5px solid rgba(192,90,44,0.4); }
+    .btn-site:hover { background: rgba(192,90,44,0.06); }
+
+    .copied-toast {
+      display: none; text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.95rem;
+      color: #4e88a0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TITLE CARD ── -->
+  <div class="title-card">
+    <span class="tc-welcome">W E L C O M E &nbsp; T O</span>
+
+    <div class="tc-palm-block">
+      <!-- Palm trees -->
+      <svg class="tc-palms" viewBox="0 0 280 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left trunk -->
+        <path d="M 62 168 C 66 145 73 118 80 95 C 87 72 92 52 96 35" stroke="#7dafc6" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M 65 155 C 68 135 74 112 80 90" stroke="#a8d4e4" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+        <!-- Left fronds -->
+        <path d="M 96 35 C 72 18 44 4  14 2  C 38 10 70 22 96 35Z" fill="#7dafc6" opacity="0.88"/>
+        <path d="M 96 35 C 66 26 36 26  2 34 C 36 44 66 44 96 35Z" fill="#6aa4bb" opacity="0.84"/>
+        <path d="M 96 35 C 72 46 50 58 26 72  C 48 62 72 48 96 35Z" fill="#7dafc6" opacity="0.80"/>
+        <path d="M 96 35 C 93 14 91  -4 89 -18 C 102 -4 104 14 96 35Z" fill="#8cc3d5" opacity="0.90"/>
+        <path d="M 96 35 C 116 14 138  2 156 -8 C 140 10 118 22 96 35Z" fill="#7dafc6" opacity="0.88"/>
+        <path d="M 96 35 C 122 26 146 26 174 34 C 146 44 122 44 96 35Z" fill="#6aa4bb" opacity="0.82"/>
+        <path d="M 96 35 C 118 44 136 56 150 70  C 132 60 114 46 96 35Z" fill="#7dafc6" opacity="0.78"/>
+        <path d="M 96 35 C 100 50 104 66 106 80  C 99 66 95 50 96 35Z" fill="#8cc3d5" opacity="0.74"/>
+        <!-- Coconuts left -->
+        <circle cx="93" cy="42" r="5" fill="#4e88a0" opacity="0.82"/>
+        <circle cx="101" cy="38" r="4" fill="#4e88a0" opacity="0.76"/>
+        <circle cx="88" cy="39" r="3.5" fill="#4e88a0" opacity="0.72"/>
+
+        <!-- Right trunk -->
+        <path d="M 218 168 C 214 145 207 118 200 95 C 193 72 188 52 184 35" stroke="#7dafc6" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M 215 155 C 212 135 206 112 200 90" stroke="#a8d4e4" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+        <!-- Right fronds -->
+        <path d="M 184 35 C 208 18 236 4  266 2  C 242 10 210 22 184 35Z" fill="#7dafc6" opacity="0.88"/>
+        <path d="M 184 35 C 214 26 244 26 278 34 C 244 44 214 44 184 35Z" fill="#6aa4bb" opacity="0.84"/>
+        <path d="M 184 35 C 208 46 230 58 254 72  C 232 62 208 48 184 35Z" fill="#7dafc6" opacity="0.80"/>
+        <path d="M 184 35 C 187 14 189 -4 191 -18 C 178 -4 176 14 184 35Z" fill="#8cc3d5" opacity="0.90"/>
+        <path d="M 184 35 C 164 14 142  2 124 -8 C 140 10 162 22 184 35Z" fill="#7dafc6" opacity="0.88"/>
+        <path d="M 184 35 C 158 26 134 26 106 34 C 134 44 158 44 184 35Z" fill="#6aa4bb" opacity="0.82"/>
+        <path d="M 184 35 C 162 44 144 56 130 70  C 148 60 166 46 184 35Z" fill="#7dafc6" opacity="0.78"/>
+        <path d="M 184 35 C 180 50 176 66 174 80  C 181 66 185 50 184 35Z" fill="#8cc3d5" opacity="0.74"/>
+        <!-- Coconuts right -->
+        <circle cx="187" cy="42" r="5" fill="#4e88a0" opacity="0.82"/>
+        <circle cx="179" cy="38" r="4" fill="#4e88a0" opacity="0.76"/>
+        <circle cx="192" cy="39" r="3.5" fill="#4e88a0" opacity="0.72"/>
+      </svg>
+
+      <!-- THE / Bach / CLUB overlaid -->
+      <div class="tc-text-over">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0 0.6rem;margin-bottom:0.2rem;">
+          <span class="tc-est">EST.</span>
+          <div>
+            <span class="tc-the">THE</span>
+            <span class="tc-bach">Bach</span>
+            <span class="tc-club">CLUB</span>
+          </div>
+          <span class="tc-est">2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc-rule"></div>
+    <span class="tc-sara">Sara's Bachelorette</span>
+    <p class="tc-cabo">Cabo San Lucas &nbsp;·&nbsp; Mexico</p>
+    <p class="tc-dates">April 29 – May 3, 2026</p>
+  </div>
+
+  <!-- ── ITINERARY CARD ── -->
+  <div class="itin-card">
+    <h2 class="itin-title">Itinerary</h2>
+    <div class="itin-rule"></div>
+
+    <!-- WEDNESDAY -->
+    <div class="day">
+      <div class="day-head">
+        <div><span class="d-name">WEDNESDAY</span> <span class="d-date">April 29</span></div>
+        <span class="d-vibe">Golden Hour, Tequila Sunset</span>
+      </div>
+      <div class="d-dots">
+        <div class="d-dot" style="background:#f9e04b;"></div>
+        <div class="d-dot" style="background:#f4a13a;"></div>
+        <div class="d-dot" style="background:#e07030;"></div>
+        <div class="d-dot" style="background:#c07840;"></div>
+        <div class="d-dot" style="background:#8b3a2a;"></div>
+        <div class="d-dot" style="background:#f0e0c8;"></div>
+      </div>
+      <div class="ev"><span class="ev-t">1:00 PM</span><span class="ev-d"><strong>Welcome Drinks</strong> <em>– Poolside</em></span></div>
+      <div class="ev"><span class="ev-t">2:00 PM</span><span class="ev-d"><strong>Settle In</strong> <em>– Unpack &amp; get ready</em></span></div>
+      <div class="ev"><span class="ev-t">5:00 PM</span><span class="ev-d"><strong>Sunset Dinner</strong> <em>– Mona Lisa</em></span></div>
+    </div>
+
+    <!-- THURSDAY -->
+    <div class="day">
+      <div class="day-head">
+        <div><span class="d-name">THURSDAY</span> <span class="d-date">April 30</span></div>
+        <span class="d-vibe">Mermaids Gone Wild</span>
+      </div>
+      <div class="d-dots">
+        <div class="d-dot" style="background:#1a80c4;"></div>
+        <div class="d-dot" style="background:#00b4d8;"></div>
+        <div class="d-dot" style="background:#48cae4;"></div>
+        <div class="d-dot" style="background:#00c8b4;"></div>
+        <div class="d-dot" style="background:#90e0ef;"></div>
+        <div class="d-dot" style="background:#caf0f8;"></div>
+      </div>
+      <span class="d-note">💙 please wear a blue swimsuit</span>
+      <div class="ev"><span class="ev-t">10:00 AM</span><span class="ev-d"><strong>Boat Charter</strong> <em>– Private catamaran, breakfast &amp; lunch, open bar, snorkeling</em></span></div>
+      <div class="ev"><span class="ev-t">Afternoon</span><span class="ev-d"><strong>Villa Day Party</strong> <em>– Pool time, games &amp; lunch</em></span></div>
+      <div class="ev"><span class="ev-t">Evening</span><span class="ev-d"><strong>Dinner at the Villa</strong> <em>– Private chef</em></span></div>
+    </div>
+
+    <!-- FRIDAY -->
+    <div class="day">
+      <div class="day-head">
+        <div><span class="d-name">FRIDAY</span> <span class="d-date">May 1</span></div>
+        <span class="d-vibe">Fuego Friday</span>
+      </div>
+      <div class="d-dots">
+        <div class="d-dot" style="background:#c8151a;"></div>
+        <div class="d-dot" style="background:#1a1a1a;"></div>
+        <div class="d-dot" style="background:#f06000;"></div>
+        <div class="d-dot" style="background:#f0c000;"></div>
+        <div class="d-dot" style="background:#6b3a1f;"></div>
+        <div class="d-dot" style="background:#c89820;"></div>
+      </div>
+      <div class="ev"><span class="ev-t">Morning</span><span class="ev-d"><strong>Breakfast</strong> <em>– At the villa</em></span></div>
+      <div class="ev"><span class="ev-t">Afternoon</span><span class="ev-d"><strong>Beach Club</strong> <em>– Taboo</em></span></div>
+      <div class="ev"><span class="ev-t">Evening</span><span class="ev-d"><strong>Dinner Party</strong> <em>– Rosa Negra</em></span></div>
+    </div>
+
+    <!-- SATURDAY -->
+    <div class="day">
+      <div class="day-head">
+        <div><span class="d-name">SATURDAY</span> <span class="d-date">May 2</span></div>
+        <span class="d-vibe">Match Made in Heaven</span>
+      </div>
+      <div class="d-dots">
+        <div class="d-dot" style="background:#ffffff;"></div>
+        <div class="d-dot" style="background:#f5f0e2;"></div>
+        <div class="d-dot" style="background:#daeef8;"></div>
+        <div class="d-dot" style="background:#fad4dc;"></div>
+        <div class="d-dot" style="background:#fdf5c8;"></div>
+        <div class="d-dot" style="background:#d4c4b0;"></div>
+      </div>
+      <div class="ev"><span class="ev-t">Morning</span><span class="ev-d"><strong>Breakfast</strong> <em>– Sleep in &amp; recover</em></span></div>
+      <div class="ev"><span class="ev-t">3:00 PM</span><span class="ev-d"><strong>Bagatelle Party Brunch</strong></span></div>
+      <div class="ev"><span class="ev-t">Night</span><span class="ev-d"><strong>Club Night</strong> <em>– Downtown Cabo</em></span></div>
+    </div>
+
+    <!-- SUNDAY -->
+    <div class="day">
+      <div class="day-head">
+        <div><span class="d-name">SUNDAY</span> <span class="d-date">May 3</span></div>
+        <span class="d-vibe">Unwell</span>
+      </div>
+      <div class="d-dots">
+        <div class="d-dot" style="background:#c8c0b8;"></div>
+        <div class="d-dot" style="background:#a8a0a0;"></div>
+        <div class="d-dot" style="background:#e8e0d8;"></div>
+        <div class="d-dot" style="background:#808080;"></div>
+      </div>
+      <div class="ev"><span class="ev-t">Morning</span><span class="ev-d"><strong>Final Breakfast</strong> <em>– Recap the memories</em></span></div>
+      <div class="ev"><span class="ev-t">Afternoon</span><span class="ev-d"><strong>Transport to Airport</strong> <em>– Hasta luego! ✈️</em></span></div>
+    </div>
+  </div>
+
+  <!-- ── BUTTONS ── -->
+  <div class="copy-wrap">
+    <button class="btn btn-copy" onclick="copyText()">Copy for Group Chat</button>
+    <a class="btn btn-site" href="https://vidaekhlas21.github.io/club-cabo/" target="_blank">View Full Website →</a>
+    <p class="copied-toast" id="toast">✓ Copied! Paste into your group chat 🌴</p>
+  </div>
+
+  <script>
+    function copyText() {
+      const text = `🌴 CLUB CABO 🌴
+Sara's Bachelorette
+
+📅 April 29 – May 3, 2026
+📍 Cabo San Lucas, Mexico
+
+━━━━━━━━━━━━━━━━━━
+
+WEDNESDAY, April 29
+✨ Golden Hour, Tequila Sunset
+
+1:00 PM  — Welcome Drinks, Poolside 🥂
+2:00 PM  — Settle In & Unpack
+5:00 PM  — Sunset Dinner at Mona Lisa 🌅
+
+━━━━━━━━━━━━━━━━━━
+
+THURSDAY, April 30
+🧜‍♀️ Mermaids Gone Wild
+💙 BLUE SWIMSUIT REQUIRED
+
+10:00 AM — Boat Charter 🛥️
+           Private catamaran, open bar, snorkeling
+Afternoon — Villa Day Party + Games
+Evening   — Private Chef Dinner at Villa 🍽️
+
+━━━━━━━━━━━━━━━━━━
+
+FRIDAY, May 1
+🔥 Fuego Friday
+
+Morning   — Breakfast at the Villa
+Afternoon — Beach Club (Taboo) 🏖️
+Evening   — Dinner at Rosa Negra 🌹
+
+━━━━━━━━━━━━━━━━━━
+
+SATURDAY, May 2
+🤍 Match Made in Heaven
+
+Morning   — Sleep In & Recover
+3:00 PM   — Bagatelle Party Brunch 🥂
+Night     — Club Night, Downtown Cabo 🪩
+
+━━━━━━━━━━━━━━━━━━
+
+SUNDAY, May 3
+😵 Unwell (airport outfit)
+
+Morning   — Final Breakfast & Recap
+Afternoon — Transport to Airport ✈️
+
+━━━━━━━━━━━━━━━━━━
+
+🔗 Full website & details:
+vidaekhlas21.github.io/club-cabo/
+
+Questions? Text Vida 💕`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 3000);
+      });
+    }
+  </script>
+
+</body>
+</html>
